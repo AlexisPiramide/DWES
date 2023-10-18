@@ -8,7 +8,6 @@ public class ConectionManager {
 
     private static Connection con;
     private static ConectionManager conexionBD;
-
     private static String direccion = "basejugadores.cdtiqtgskb74.us-east-1.rds.amazonaws.com";
     private static String usuario = "admin";
     private static String Password = "18175118N";
