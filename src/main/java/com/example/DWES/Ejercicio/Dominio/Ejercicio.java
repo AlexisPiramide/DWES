@@ -1,22 +1,26 @@
-package com.example.DWES.Dominio;
+package com.example.DWES.Ejercicio.Dominio;
 
-public class Entrenamiento {
 
-    private Integer id;
+public class Ejercicio {
 
-    private String titulo, descripcion, etiquetas, dureza, materiales_necesarios;
+    private Integer id, resistencia, velocidad, recuperacion;;
+
+    private String titulo, descripcion, etiquetas, materiales_necesarios;
 
     private Double duracion;
 
-    public Entrenamiento(Integer id, String titulo, String descripcion, String etiquetas, String dureza, String materiales_necesarios, Double duracion) {
+    public Ejercicio(Integer id, Integer resistencia, Integer velocidad, Integer recuperacion, String titulo, String descripcion, String etiquetas, String materiales_necesarios, Double duracion) {
         this.id = id;
+        this.resistencia = resistencia;
+        this.velocidad = velocidad;
+        this.recuperacion = recuperacion;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.etiquetas = etiquetas;
-        this.dureza = dureza;
         this.materiales_necesarios = materiales_necesarios;
         this.duracion = duracion;
     }
+
 
     public Integer getId() {
         return id;
@@ -50,12 +54,28 @@ public class Entrenamiento {
         this.etiquetas = etiquetas;
     }
 
-    public String getDureza() {
-        return dureza;
+    public Integer getResistencia() {
+        return resistencia;
     }
 
-    public void setDureza(String dureza) {
-        this.dureza = dureza;
+    public void setResistencia(Integer resistencia) {
+        this.resistencia = resistencia;
+    }
+
+    public Integer getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(Integer velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public Integer getRecuperacion() {
+        return recuperacion;
+    }
+
+    public void setRecuperacion(Integer recuperacion) {
+        this.recuperacion = recuperacion;
     }
 
     public String getMateriales_necesarios() {
