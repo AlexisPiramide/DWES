@@ -20,37 +20,40 @@ public class EjercicioRepositroySQL implements EjercicioRepository {
     String etiquetas;
     String material;
     @Override
-    public List<Ejercicio> getAll(String id_ejercicio) {
+    public List<Ejercicio> getAll() {
 
         try {
             /*Query para sacar los ejercicios*/
             Connection connectionBD = ConectionManager.getConexion("Futbol" );
-            PreparedStatement stmnt = connectionBD.prepareStatement("select * from ejercicios;");
+            PreparedStatement stmnt = connectionBD.prepareStatement("SELECT * FROM Ejercicios;");
 
             ResultSet rs = stmnt.executeQuery();
 
-            /*Query para sacar las etiquetas de un ejercicio*/
-            PreparedStatement stmnt2 = connectionBD.prepareStatement("select * from etiquetas where id='"+rs.getInt("id")+"';");
-
-            /*Query para sacar los materiales de un ejercicio*/
-            PreparedStatement stmnt3 = connectionBD.prepareStatement("select * from material where id='"+rs.getInt("id")+"';");
 
             List<Ejercicio> ListaEjercicios = new ArrayList<>();
 
             while (rs.next()) {
 
+                int idbuscar1 = +rs.getInt("etiquetas_id");
+                /*Query para sacar las etiquetas de un ejercicio*/
+                PreparedStatement stmnt2 = connectionBD.prepareStatement("SELECT nombre FROM Etiquetas WHERE id ='"+idbuscar1+"';");
+                int idbuscar2 = +rs.getInt("materiales_id");
+                /*Query para sacar los materiales de un ejercicio*/
+                PreparedStatement stmnt3 = connectionBD.prepareStatement("SELECT nombre FROM MaterialesNecesarios WHERE id ='"+idbuscar2+"';");
+
+
                 /*Bucle que saca todas las etiquetas de un ejercicio*/
                 ResultSet rs2 = stmnt2.executeQuery();
                 etiquetas = "";
-                while (rs.next()){
-                    etiquetas+= rs2.getString("id");
+                while (rs2.next()){
+                    etiquetas+= rs2.getString("nombre");
                 }
 
                 /*Bucle que saca todos los materiales de un ejercicio*/
                 ResultSet rs3 = stmnt3.executeQuery();
                 etiquetas = "";
-                while (rs.next()){
-                    material+= rs3.getString("id");
+                while (rs3.next()){
+                    material+= rs3.getString("nombre");
                 }
 
                 /*Rellena el ejercicio y lo añade a la lista*/
@@ -72,5 +75,10 @@ public class EjercicioRepositroySQL implements EjercicioRepository {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Override
+    public List<Ejercicio> getEjercicio(String id_Ejercicio) {
+        return null;
     }
 }
