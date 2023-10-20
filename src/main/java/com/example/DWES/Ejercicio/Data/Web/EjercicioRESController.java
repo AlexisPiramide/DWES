@@ -6,10 +6,7 @@ import com.example.DWES.Ejercicio.Dominio.Ejercicio;
 import com.example.DWES.Ejercicio.Dominio.EjercicioRepository;
 import com.example.DWES.Jugador.Applicacion.UseCases;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,16 +20,16 @@ public class EjercicioRESController {
     }
 
     @GetMapping ("/Inicio")
-    List<Ejercicio> ejercicios (Model model){
+        List<Ejercicio> ejercicios (Model model){
         List<Ejercicio> ejercicios = this.casodeuso.getAll();
 
         return (ejercicios);
     }
 
-    @PostMapping("/")
-    String BuscaEjercicio(@RequestParam Ejercicio ejercicio){
+    @PostMapping("/Añadir")
+        boolean AñadirEjercicio(@RequestBody Ejercicio ejercicio){
+        boolean nuevoEjercicio = this.casodeuso.nuevoEjercicio(ejercicio);
 
-
-        return ("Inicio");
+        return (nuevoEjercicio);
     }
 }

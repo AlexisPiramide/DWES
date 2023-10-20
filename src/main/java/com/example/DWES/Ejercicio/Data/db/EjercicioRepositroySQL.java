@@ -76,6 +76,65 @@ public class EjercicioRepositroySQL implements EjercicioRepository {
         }
 
     }
+    public boolean nuevoEjercicio(Ejercicio ejercicio) {
+
+        int etiqueta = getEtiquetas(ejercicio.getEtiquetas());
+        int materiral = getMateriales(ejercicio.getMateriales_necesarios());
+
+        String Querysql=
+                "INSERT INTO Ejercicios (id, resistencia, velocidad, recuperacion, titulo, duracion, descripcion, etiquetas_id, materiales_id) " +
+                "VALUES ('" + ejercicio.getId() + "', '" + ejercicio.getResistencia() + "', '" + ejercicio.getVelocidad() + "', '" +
+                ejercicio.getRecuperacion() + "', '" + ejercicio.getTitulo() + "', '" + ejercicio.getDuracion() + "', '" +
+                ejercicio.getDescripcion() + "', '" + etiqueta + "', '" + materiral + "')";
+
+
+        try{
+            Connection connectionBD = ConectionManager.getConexion("Futbol" );
+            PreparedStatement stmnt = connectionBD.prepareStatement(Querysql);
+            stmnt.execute();
+            return true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int getEtiquetas(String Etiqueta) {
+        int i = 0;
+        try{
+            Connection connectionBD = ConectionManager.getConexion("Futbol" );
+            PreparedStatement stmnt = connectionBD.prepareStatement("SELECT id FROM Etiquetas WHERE nombre='"+Etiqueta+"';");
+            ResultSet rs = stmnt.executeQuery();
+
+            while (rs.next()) {
+                i = rs.getInt("id");
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return i;
+    }
+
+    public int getMateriales(String Etiqueta) {
+        int i = 0;
+        try{
+            Connection connectionBD = ConectionManager.getConexion("Futbol" );
+            PreparedStatement stmnt = connectionBD.prepareStatement("SELECT id FROM MaterialesNecesarios WHERE nombre='"+Etiqueta+"';");
+            ResultSet rs = stmnt.executeQuery();
+
+            while (rs.next()) {
+                i = rs.getInt("id");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return i;
+    }
+
 
     @Override
     public List<Ejercicio> getEjercicio(String id_Ejercicio) {

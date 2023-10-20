@@ -16,4 +16,9 @@ public class EjercicioUseCases {
     public List<Ejercicio> getAll(){
         return this.ejercicioRepositroySQL.getAll();
     }
+
+
+    public boolean nuevoEjercicio(Ejercicio ejercicio){
+        return  this.ejercicioRepositroySQL.nuevoEjercicio(ejercicio);
+    }
 }

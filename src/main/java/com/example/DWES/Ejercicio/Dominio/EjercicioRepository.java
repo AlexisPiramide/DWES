@@ -7,4 +7,5 @@ public interface EjercicioRepository {
    public List<Ejercicio> getAll();
    public List<Ejercicio> getEjercicio(String id_Ejercicio);
 
+   public boolean nuevoEjercicio(Ejercicio ejercicio);
 }
