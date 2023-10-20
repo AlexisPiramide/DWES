@@ -1,4 +1,4 @@
 package com.example.DWES.Entrenamiento.Dominio;
 
-public class EntrenamientoRepository {
+public interface EntrenamientoRepository {
 }
