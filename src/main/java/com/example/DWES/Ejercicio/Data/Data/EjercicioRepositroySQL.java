@@ -1,4 +1,4 @@
-package com.example.DWES.Ejercicio.Data.db;
+package com.example.DWES.Ejercicio.Data.Data;
 
 import com.example.DWES.Conexion.ConectionManager;
 import com.example.DWES.Ejercicio.Dominio.Ejercicio;

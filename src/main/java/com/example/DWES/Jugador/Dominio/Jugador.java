@@ -4,11 +4,10 @@ import java.util.Date;
 
 public class Jugador {
 
-    private String DNI, nombre, apellidos;
+    private String DNI, nombre, apellidos,fechanacimiento;
     private Integer resistencia, velocidad, recuperacion;
-    private Date fechanacimiento;
 
-    public Jugador(String DNI, String nombre, String apellidos, Integer resistencia, Integer velocidad, Integer recuperacion, Date fechanacimiento) {
+    public Jugador(String DNI, String nombre, String apellidos, Integer resistencia, Integer velocidad, Integer recuperacion, String fechanacimiento) {
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -66,11 +65,11 @@ public class Jugador {
         this.recuperacion = recuperacion;
     }
 
-    public Date getFechanacimiento() {
+    public String getFechanacimiento() {
         return fechanacimiento;
     }
 
-    public void setFechanacimiento(Date fechanacimiento) {
+    public void setFechanacimiento(String fechanacimiento) {
         this.fechanacimiento = fechanacimiento;
     }
 }

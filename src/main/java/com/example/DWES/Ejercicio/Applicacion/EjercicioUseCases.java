@@ -1,6 +1,6 @@
 package com.example.DWES.Ejercicio.Applicacion;
 
-import com.example.DWES.Ejercicio.Data.db.EjercicioRepositroySQL;
+import com.example.DWES.Ejercicio.Data.Data.EjercicioRepositroySQL;
 import com.example.DWES.Ejercicio.Dominio.Ejercicio;
 
 import java.util.*;
