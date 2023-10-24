@@ -10,10 +10,10 @@ public class Entrenamiento{
     private Integer Id;
     private Date Fecha;
     private List<Ejercicio> Ejercicios;
-    private Jugador Asistentes;
+    private List<Jugador> Asistentes;
 
 
-    public Entrenamiento(Integer id, Date fecha, List<Ejercicio> ejercicios, Jugador asistentes) {
+    public Entrenamiento(Integer id, Date fecha, List<Ejercicio> ejercicios, List<Jugador> asistentes) {
         Id = id;
         Fecha = fecha;
         Ejercicios = ejercicios;
@@ -44,11 +44,11 @@ public class Entrenamiento{
         Ejercicios = ejercicios;
     }
 
-    public Jugador getAsistentes() {
+    public List<Jugador> getAsistentes() {
         return Asistentes;
     }
 
-    public void setAsistentes(Jugador asistentes) {
+    public void setAsistentes(List<Jugador> asistentes) {
         Asistentes = asistentes;
     }
 }

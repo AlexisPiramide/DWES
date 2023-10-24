@@ -1,4 +1,4 @@
 package com.example.DWES.Entrenamiento.Applicacion;
 
-public class UseCases {
+public class EntrenamientoUseCases {
 }

@@ -43,6 +43,36 @@ public class JugadorRepositorySQL {
 
     }
 
+
+    public Jugador getJugador(String DNI) {
+
+        try {
+            /*Query para sacar los Jugadores*/
+            Connection connectionBD = ConectionManager.getConexion("Futbol" );
+            PreparedStatement stmnt = connectionBD.prepareStatement("SELECT * FROM Jugadores where DNI = '"+DNI+"';");
+
+            ResultSet rs = stmnt.executeQuery();
+
+            Jugador jugador;
+            while (rs.next()) {
+                jugador = new Jugador(
+                        rs.getString(DNI),
+                        rs.getString("nombre"),
+                        rs.getString("apellidos"),
+                        rs.getInt("resistencia"),
+                        rs.getInt("velocidad"),
+                        rs.getInt("recuperacion"),
+                        rs.getString("fechanacimiento")));
+            }
+
+            return jugador;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     public boolean nuevojugador(Jugador jugador) {
 
 

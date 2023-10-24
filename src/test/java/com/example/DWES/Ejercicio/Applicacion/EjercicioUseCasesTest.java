@@ -3,11 +3,13 @@ package com.example.DWES.Ejercicio.Applicacion;
 import com.example.DWES.Ejercicio.Data.Data.EjercicioRepositroySQL;
 import com.example.DWES.Ejercicio.Dominio.Ejercicio;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class EjercicioUseCasesTest {
 
     private EjercicioRepositroySQL ejercicioRepositroySQL;
